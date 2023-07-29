@@ -133,10 +133,6 @@ class LatexOCR:
 
         dec = self.model.generate(im.to(self.args.device), temperature=self.args.get('temperature', .25))
         pred = post_process(token2str(dec, self.tokenizer)[0])
-        try:
-            clipboard.copy(pred)
-        except:
-            pass
         return pred
 
 
